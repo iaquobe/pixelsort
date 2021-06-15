@@ -15,7 +15,7 @@ int compare_int(const void* left, const void* right){
 
 
 
-int* split_n(int *n, int width, int height){
+int* split_n(int *n, int width){
 	int *res = malloc(sizeof(int) * (*n));
 
 	for(int i = 0; i < (*n); i++){
@@ -29,14 +29,14 @@ int* split_n(int *n, int width, int height){
 
 
 
-int* split_30(int *n, int width, int height){
+int* split_30(int *n, int width){
 	*n = 30;
-	return split_n(n, width, height);
+	return split_n(n, width);
 }
 
 
 
-int* split_whole_line(int *n, int width, int height){
+int* split_whole_line(int *n, int width){
 	int *res = malloc(sizeof(int));
 	*n = 1; 
 
@@ -44,4 +44,26 @@ int* split_whole_line(int *n, int width, int height){
 
 	return res;
 
+}
+
+
+int* split_similar(int *n, int width){
+	int *res = malloc(sizeof(int) * (*n));
+	
+	int len = width / *n;
+	int var = len / 10 + 1; 
+	len -= var;
+
+	int index = 0;
+	int pos = 0;
+	for(int i = 0; i < *n; i++){
+		int l = rand() % (2 * var);
+		pos += len + l; 
+		if(pos > width)
+			pos = width; 
+		*(res + index) = pos;
+		index++;
+	}
+
+	return res;
 }

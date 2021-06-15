@@ -32,11 +32,7 @@ int compare_sum(char* left, char* right){
 	char suml = left[0] + left[1] + left[2];
 	char sumr = right[0] + right[1] + right[2];
 
-	if(suml < sumr)
-		return -1;
-	if(suml == sumr)
-		return 0;
-	return 1;
+	return suml - sumr;
 }
 
 
@@ -44,9 +40,5 @@ int compare_hue(char* left, char *right){
 	float left_hue = to_hue(left[0], left[1], left[2]);
 	float right_hue = to_hue(right[0], right[1], right[2]);
 
-	if(left > right)
-		return -1;
-	if(left < right)
-		return 1;
-	return 0;
+	return left_hue - right_hue;
 }

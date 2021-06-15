@@ -1,2 +1,3 @@
+#include<stdlib.h>
 
-void sort(char *filein, char *fileout, int (*compare)(char*, char*), int* (*split)(int *, int, int));
+void sort(void *, size_t, size_t, __compar_fn_t);
