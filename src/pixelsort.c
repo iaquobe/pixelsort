@@ -74,7 +74,7 @@ void pixelsort(char *filein, char *fileout, char *filemask, int (*compare)(char*
 
 
 	int* splits = 0;
-	int nsplits = 50;
+	int nsplits = 20;
 	for(int i = 0; i < height; i++){
 		unsigned char* line = image + (i * width) * ELEM_SIZE;
 		int line_len = width; 
